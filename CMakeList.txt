@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.5)
+project(resource_monitor_ros2)
+
+# Find dependencies
+#find_package(ament_cmake REQUIRED)
+find_package(rclpy REQUIRED)
+
+# Install Python scripts
+ament_python_install_package(resource_monitor_ros2)
+
+# Install launch files
+install(DIRECTORY launch/
+    DESTINATION share/resource_monitor_ros2/launch
+)
+
+# Install Python scripts
+install(PROGRAMS
+    resource_monitor_ros2/resource_monitor_ros2.py
+    DESTINATION lib/resource_monitor_ros2
+)
+
+
+ament_package()
